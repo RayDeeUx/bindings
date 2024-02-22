@@ -1804,3 +1804,9 @@ class DS_Dictionary {
 	void stepOutOfSubDict();
 	bool vec2FromString(gd::string const&, cocos2d::CCPoint&);
 }
+
+[[link(win, android)]]
+class cocos2d::CCSpriteBatchNode {
+    bool initWithTexture(cocos2d::CCTexture2D*, unsigned int);
+
+}
