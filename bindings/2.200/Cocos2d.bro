@@ -55,6 +55,30 @@ class cocos2d::CCEaseOut {
 
 
 [[link(win, android)]]
+class cocos2d::CCEaseSineIn {
+	static cocos2d::CCEaseSineIn* create(cocos2d::CCActionInterval*) = mac 0x4ed5b0;
+
+	// CCEaseSineIn(cocos2d::CCEaseSineIn const&);
+	// CCEaseSineIn();
+
+	virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*);
+	virtual void update(float);
+	virtual cocos2d::CCActionInterval* reverse();
+}
+
+[[link(win, android)]]
+class cocos2d::CCEaseSineOut {
+	static cocos2d::CCEaseSineOut* create(cocos2d::CCActionInterval*) = mac 0x4ed7a0;
+
+	// CCEaseSineOut(cocos2d::CCEaseSineOut const&);
+	// CCEaseSineOut();
+
+	virtual cocos2d::CCObject* copyWithZone(cocos2d::CCZone*);
+	virtual void update(float);
+	virtual cocos2d::CCActionInterval* reverse();
+}
+
+[[link(win, android)]]
 class cocos2d::CCEaseSineInOut {
 	static cocos2d::CCEaseSineInOut* create(cocos2d::CCActionInterval*) = mac 0x4ed980;
 
@@ -2055,7 +2079,7 @@ class cocos2d {
 	static void ccDrawSolidPoly(cocos2d::CCPoint const*, unsigned int, cocos2d::_ccColor4F);
 	static void ccDrawSolidRect(cocos2d::CCPoint, cocos2d::CCPoint, cocos2d::_ccColor4F) = mac 0x1e7250;
 	static void ccGLBindTexture2D(unsigned int) = mac 0x33a420;
-	static void ccGLBindTexture2DN(unsigned int, unsigned int);
+	static void ccGLBindTexture2DN(unsigned int, unsigned int) = mac 0x33a460;
 	static void ccGLBindVAO(unsigned int);
 	static void ccGLBlendFunc(unsigned int, unsigned int) = mac 0x33a370;
 	static void ccGLBlendResetToCache();
