@@ -4641,7 +4641,7 @@ class EndPortalObject : GameObject {
 	virtual void setPosition(cocos2d::CCPoint const&) = m1 0x326930, imac 0x39f890;
 	virtual void setVisible(bool) = m1 0x326a28, imac 0x39f9a0;
 
-	cocos2d::CCSprite *m_gradientBar;
+	cocos2d::CCSprite* m_gradientBar;
 	bool m_flippedX;
 	bool m_startPosHeightRelated;
 }
