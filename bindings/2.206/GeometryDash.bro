@@ -4641,7 +4641,9 @@ class EndPortalObject : GameObject {
 	virtual void setPosition(cocos2d::CCPoint const&) = m1 0x326930, imac 0x39f890;
 	virtual void setVisible(bool) = m1 0x326a28, imac 0x39f9a0;
 
-	PAD = win 0x8;
+	cocos2d::CCSprite *m_gradientBar;
+	bool m_flippedX;
+	bool m_startPosHeightRelated;
 }
 
 [[link(android)]]
@@ -4654,6 +4656,10 @@ class EndTriggerGameObject : EffectGameObject {
 	virtual void triggerObject(GJBaseGameLayer*, int, gd::vector<int> const*) = win 0x490510, m1 0x18e0c4, imac 0x1d58d0;
 	virtual void customObjectSetup(gd::vector<gd::string>&, gd::vector<void*>&) = m1 0x18ec20, imac 0x1d6690;
 	virtual gd::string getSaveString(GJBaseGameLayer*) = m1 0x18e1a0, imac 0x1d59b0;
+
+	bool m_noEffects;
+	bool m_noSFX;
+	bool m_instant;
 }
 
 [[link(android)]]
