@@ -4632,16 +4632,18 @@ class EndPortalObject : GameObject {
 
 	static EndPortalObject* create() = imac 0x39f2f0;
 
-	TodoReturn getSpawnPos() = win 0x134050, imac 0x39f810, m1 0x3268cc;
+	cocos2d::CCPoint getSpawnPos() = win 0x134050, imac 0x39f810, m1 0x3268cc;
 	void triggerObject(GJBaseGameLayer*) = imac 0x39f780, m1 0x326838;
 	TodoReturn updateColors(cocos2d::ccColor3B);
-	TodoReturn updateEndPos(bool) = win 0x1342c0, imac 0x39fa00, m1 0x326a8c;
+	void updateEndPos(bool) = win 0x1342c0, imac 0x39fa00, m1 0x326a8c;
 
 	virtual bool init() = m1 0x326498, imac 0x39f390;
 	virtual void setPosition(cocos2d::CCPoint const&) = m1 0x326930, imac 0x39f890;
 	virtual void setVisible(bool) = m1 0x326a28, imac 0x39f9a0;
 
-	PAD = win 0x8;
+	cocos2d::CCSprite* m_gradientBar;
+	bool m_flippedX;
+	bool m_startPosHeightRelated;
 }
 
 [[link(android)]]
@@ -4651,9 +4653,13 @@ class EndTriggerGameObject : EffectGameObject {
 	static EndTriggerGameObject* create();
 
 	virtual bool init() = m1 0x18e074, imac 0x1d5880;
-	virtual void triggerObject(GJBaseGameLayer*, int, gd::vector<int> const*) = m1 0x18e0c4, imac 0x1d58d0;
+	virtual void triggerObject(GJBaseGameLayer*, int, gd::vector<int> const*) = win 0x490510, m1 0x18e0c4, imac 0x1d58d0;
 	virtual void customObjectSetup(gd::vector<gd::string>&, gd::vector<void*>&) = m1 0x18ec20, imac 0x1d6690;
 	virtual gd::string getSaveString(GJBaseGameLayer*) = m1 0x18e1a0, imac 0x1d59b0;
+
+	bool m_noEffects;
+	bool m_noSFX;
+	bool m_instant;
 }
 
 [[link(android)]]
@@ -5354,34 +5360,33 @@ class FriendRequestPopup : FLAlertLayer, UploadActionDelegate, UploadPopupDelega
 }
 
 [[link(android)]]
-class FriendsProfilePage : FLAlertLayer, FLAlertLayerProtocol, UploadActionDelegate, UploadPopupDelegate, UserListDelegate {
-	// virtual ~FriendsProfilePage();
+ class FriendsProfilePage : FLAlertLayer, FLAlertLayerProtocol, UploadActionDelegate, UploadPopupDelegate, UserListDelegate {
+ 	// virtual ~FriendsProfilePage();
 
-	static FriendsProfilePage* create(UserListType) = imac 0x6644e0, m1 0x580834, ios 0x1e2744;
+ 	static FriendsProfilePage* create(UserListType) = win 0x13b6e0, imac 0x6644e0, m1 0x580834, ios 0x1e2744;
 
-	bool init(UserListType type) = win 0x13b830, imac 0x664670, m1 0x58095c, ios 0x1e2824;
-	void onBlocked(cocos2d::CCObject* sender) = imac 0x664e20, m1 0x58107c;
-	void onClose(cocos2d::CCObject* sender) = win 0x13c6b0, imac 0x664d60, m1 0x580fc4;
-	void onUpdate(cocos2d::CCObject* sender) = imac 0x664eb0, m1 0x581108;
-	void setupUsersBrowser(cocos2d::CCArray* users, UserListType type) = win 0x13bf40, imac 0x664f20, m1 0x58116c;
+ 	bool init(UserListType type) = win 0x13b830, imac 0x664670, m1 0x58095c, ios 0x1e2824;
+ 	void onBlocked(cocos2d::CCObject* sender) = win 0x13c620, imac 0x664e20, m1 0x58107c;
+ 	void onClose(cocos2d::CCObject* sender) = win 0x13c6b0, imac 0x664d60, m1 0x580fc4;
+ 	void onUpdate(cocos2d::CCObject* sender) = win 0x13c500, imac 0x664eb0, m1 0x581108;
+ 	void setupUsersBrowser(cocos2d::CCArray* users, UserListType type) = win 0x13bf40, imac 0x664f20, m1 0x58116c;
 
-	virtual void registerWithTouchDispatcher() = m1 0x581780, imac 0x665540;
-	virtual void keyBackClicked() = win 0x13c770, m1 0x581774, imac 0x665510;
-	virtual void getUserListFinished(cocos2d::CCArray*, UserListType) = win 0x13c2a0, m1 0x5813f0, imac 0x665190;
-	virtual void getUserListFailed(UserListType, GJErrorCode) = win 0x13c3f0, m1 0x581514, imac 0x6652d0;
-	virtual void userListChanged(cocos2d::CCArray*, UserListType) = m1 0x581644, imac 0x6653e0;
-	virtual void forceReloadList(UserListType) = win 0x13c460, m1 0x581660, imac 0x665420;
+ 	virtual void registerWithTouchDispatcher() = win 0x41750, m1 0x581780, imac 0x665540, ios 0x1e34dc;
+ 	virtual void keyBackClicked() = win 0x13c770, m1 0x581774, imac 0x665510, ios 0x1e34d0;
+ 	virtual void getUserListFinished(cocos2d::CCArray*, UserListType) = win 0x13c2a0, m1 0x5813f0, imac 0x665190, ios 0x1e3274;
+ 	virtual void getUserListFailed(UserListType, GJErrorCode) = win 0x13c3f0, m1 0x581514, imac 0x6652d0, ios 0x1e3384;
+ 	virtual void userListChanged(cocos2d::CCArray*, UserListType) = win 0x89f80, m1 0x581644, imac 0x6653e0, ios 0x1e3424;
+ 	virtual void forceReloadList(UserListType) = win 0x13c460, m1 0x581660, imac 0x665420, ios 0x1e3440;
 
-	UserListType m_type;
-	cocos2d::CCLabelBMFont* m_noInternet;
-	cocos2d::CCLabelBMFont* m_totalFriends;
-	GJCommentListLayer* m_listLayer;
-	LoadingCircle* m_circle;
-	void* m_unk532;
-	cocos2d::CCArray* m_users;
-	CCMenuItemSpriteExtra* m_refreshBtn;
-
-}
+ 	UserListType m_type;
+ 	cocos2d::CCLabelBMFont* m_noInternet;
+ 	cocos2d::CCLabelBMFont* m_totalFriends;
+ 	GJCommentListLayer* m_listLayer;
+ 	LoadingCircle* m_circle;
+ 	void* m_unk532;
+ 	cocos2d::CCArray* m_users;
+ 	CCMenuItemSpriteExtra* m_refreshBtn;
+ }
 
 [[link(android)]]
 class GameCell : TableViewCell {
@@ -13165,34 +13170,52 @@ class MessageListDelegate {
 class MessagesProfilePage : FLAlertLayer, FLAlertLayerProtocol, UploadActionDelegate, UploadPopupDelegate, MessageListDelegate {
 	// virtual ~MessagesProfilePage();
 
-	static MessagesProfilePage* create(bool) = imac 0x2291f0;
+	static MessagesProfilePage* create(bool) = win 0x315bd0, imac 0x2291f0, m1 0x1d6c40;
 
-	TodoReturn deleteSelected() = win 0x316cf0;
-	bool init(bool) = win 0x315d70;
-	bool isCorrect(char const*);
-	void loadPage(int) = imac 0x22a2b0, m1 0x1d7b74;
-	void onClose(cocos2d::CCObject* sender) = win 0x317110;
-	void onDeleteSelected(cocos2d::CCObject* sender);
-	void onNextPage(cocos2d::CCObject* sender) = imac 0x22a220, m1 0x1d7b04;
-	void onPrevPage(cocos2d::CCObject* sender) = imac 0x22a200, m1 0x1d7af8;
-	void onSentMessages(cocos2d::CCObject* sender);
-	void onToggleAllObjects(cocos2d::CCObject* sender);
-	void onUpdate(cocos2d::CCObject* sender);
-	void setupCommentsBrowser(cocos2d::CCArray*) = win 0x317690;
-	TodoReturn untoggleAll();
-	TodoReturn updateLevelsLabel();
-	TodoReturn updatePageArrows();
+	void deleteSelected() = win 0x316cf0, imac 0x22a6f0, m1 0x1d7f44;
+	bool init(bool) = win 0x315d70, imac 0x2293a0, m1 0x1d6d7c;
+	bool isCorrect(char const*) = win 0x13abd0, imac 0x22ad80, m1 0x1d85fc;
+	void loadPage(int) = win 0x317280, imac 0x22a2b0, m1 0x1d7b74;
+	void onClose(cocos2d::CCObject* sender) = win 0x317110, imac 0x229d90, m1 0x1d76d4;
+	void onDeleteSelected(cocos2d::CCObject* sender) = win 0x316a00, imac 0x229f50, m1 0x1d7878;
+	void onNextPage(cocos2d::CCObject* sender) = win 0x317b30, imac 0x22a220, m1 0x1d7b04;
+	void onPrevPage(cocos2d::CCObject* sender) = win 0x317b40, imac 0x22a200, m1 0x1d7af8;
+	void onSentMessages(cocos2d::CCObject* sender) = win 0x316970, imac 0x229ec0, m1 0x1d77ec;
+	void onToggleAllObjects(cocos2d::CCObject* sender) = win 0x316790, imac 0x22a140, m1 0x1d7a4c;
+	void onUpdate(cocos2d::CCObject* sender) = win 0x316870, imac 0x22a240, m1 0x1d7b10;
+	void setupCommentsBrowser(cocos2d::CCArray*) = win 0x317690, imac 0x22aea0, m1 0x1d8704;
+	void untoggleAll() = win 0x3171e0, imac 0x22ac90, m1 0x1d853c;
+	void updateLevelsLabel() = imac 0x22b7e0, m1 0x1d8ffc;
+	void updatePageArrows() = imac 0x22b760, m1 0x1d8f98;
 
-	virtual void registerWithTouchDispatcher() = m1 0x1d85c4, imac 0x22ad40;
-	virtual void keyBackClicked() = win 0x3171d0, m1 0x1d85b8, imac 0x22ad10;
-	virtual void FLAlert_Clicked(FLAlertLayer*, bool) = win 0x316f70, m1 0x1d8120, imac 0x22a8f0;
-	virtual void onClosePopup(UploadActionPopup*) = m1 0x1d81b0, imac 0x22a960;
-	virtual void uploadActionFinished(int, int) = win 0x316fa0, m1 0x1d8238, imac 0x22a9d0;
-	virtual void uploadActionFailed(int, int) = m1 0x1d83f4, imac 0x22ab70;
-	virtual void loadMessagesFinished(cocos2d::CCArray*, char const*) = win 0x317820, m1 0x1d8868, imac 0x22b010;
-	virtual void loadMessagesFailed(char const*, GJErrorCode) = m1 0x1d897c, imac 0x22b140;
-	virtual void forceReloadMessages(bool) = win 0x317970, m1 0x1d8aa8, imac 0x22b250;
-	virtual void setupPageInfo(gd::string, char const*) = win 0x317990, m1 0x1d8adc, imac 0x22b290;
+	virtual void registerWithTouchDispatcher() = win 0x41750, m1 0x1d85c4, imac 0x22ad40, ios 0x1d6ae0;
+	virtual void keyBackClicked() = win 0x3171d0, m1 0x1d85b8, imac 0x22ad10, ios 0x1d6ad4;
+	virtual void FLAlert_Clicked(FLAlertLayer*, bool) = win 0x316f70, m1 0x1d8120, imac 0x22a8f0, ios 0x1d6808;
+	virtual void onClosePopup(UploadActionPopup*) = win 0x13a970, m1 0x1d81b0, imac 0x22a960, ios 0x1d6898;
+	virtual void uploadActionFinished(int, int) = win 0x316fa0, m1 0x1d8238, imac 0x22a9d0, ios 0x1d6908;
+	virtual void uploadActionFailed(int, int) = win 0x13ab30, m1 0x1d83f4, imac 0x22ab70, ios 0x1d69f0;
+	virtual void loadMessagesFinished(cocos2d::CCArray*, char const*) = win 0x317820, m1 0x1d8868, imac 0x22b010, ios 0x1d6d30;
+	virtual void loadMessagesFailed(char const*, GJErrorCode) = win 0x13b320, m1 0x1d897c, imac 0x22b140, ios 0x1d6e44;
+	virtual void forceReloadMessages(bool) = win 0x317970, m1 0x1d8aa8, imac 0x22b250, ios 0x1d6ee0;
+	virtual void setupPageInfo(gd::string, char const*) = win 0x317990, m1 0x1d8adc, imac 0x22b290, ios 0x1d6f14;
+
+	bool m_sentMessages;
+	gd::string m_messageKey;
+	cocos2d::CCLabelBMFont* m_levelsLabel;
+	cocos2d::CCLabelBMFont* m_errorLabel;
+	GJCommentListLayer* m_listLayer;
+	LoadingCircle* m_loadingCircle;
+	UploadActionPopup* m_actionPopup;
+	void* m_unkPtr;
+	CCMenuItemSpriteExtra* m_nextButton;
+	CCMenuItemSpriteExtra* m_prevButton;
+	CCMenuItemSpriteExtra* m_refreshButton;
+	CCMenuItemToggler* m_toggleAllToggler;
+	int m_itemCount;
+	int m_pageStartIdx;
+	int m_pageEndIdx;
+	int m_page;
+	bool m_toggledAll;
 }
 
 [[link(android)]]
