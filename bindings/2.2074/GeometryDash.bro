@@ -9834,7 +9834,7 @@ class GJGameState {
 [[link(android)]]
 class GJGarageLayer : cocos2d::CCLayer, TextInputDelegate, FLAlertLayerProtocol, GameRateDelegate, ListButtonBarDelegate, DialogDelegate, CharacterColorDelegate, RewardedVideoDelegate {
     // virtual ~GJGarageLayer();
-    GJGarageLayer() = win inline {
+    GJGarageLayer() = {
         m_usernameInput = nullptr;
         m_playerObject = nullptr;
         m_tabButtons = nullptr;
