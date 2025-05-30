@@ -15533,8 +15533,8 @@ class ListButtonBar : cocos2d::CCNode {
     int getPage();
     void goToPage(int) = win 0x6b380, m1 0x361584;
     bool init(cocos2d::CCArray*, cocos2d::CCPoint, int, int, float, float, float, float, int) = win 0x6ae80, imac 0x3de110, m1 0x360f58;
-    void onLeft(cocos2d::CCObject* sender) = win 0x6b430, m1 0x361460, imac 0x3de670;
-    void onRight(cocos2d::CCObject* sender) = win 0x6b410, m1 0x3614ec, imac 0x3de710;
+    void onLeft(cocos2d::CCObject* sender) = win 0x6b430, m1 0x361460, imac 0x3de670, ios 0x16b8c4;
+    void onRight(cocos2d::CCObject* sender) = win 0x6b410, m1 0x3614ec, imac 0x3de710, ios 0x16b8d4;
 
     BoomScrollLayer* m_scrollLayer;
     cocos2d::CCArray* m_pages;
