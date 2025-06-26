@@ -5961,11 +5961,11 @@ class EventLinkTrigger : EffectGameObject {
 class ExplodeItemNode : cocos2d::CCNode {
     // virtual ~ExplodeItemNode();
 
-    static ExplodeItemNode* create(cocos2d::CCRenderTexture*) = win 0x36e780;
+    static ExplodeItemNode* create(cocos2d::CCRenderTexture*) = win 0x36e780, m1 0x1b6f88, imac 0x201ac0, ios 0x6031c;
 
     virtual void update(float) = win 0x36f1f0, imac 0x202b30, m1 0x1b7f14, ios 0x6105c;
 
-    void createSprites(int, int, float, float, float, float, float, float, cocos2d::ccColor4F, cocos2d::ccColor4F, bool) = win 0x36e840;
+    void createSprites(int, int, float, float, float, float, float, float, cocos2d::ccColor4F, cocos2d::ccColor4F, bool) = win 0x36e840, m1 0x1b703c, imac 0x201b70, ios 0x603a8;
     bool init(cocos2d::CCRenderTexture*);
 
     cocos2d::CCRenderTexture* m_renderTexture;
@@ -9618,7 +9618,7 @@ class GJBaseGameLayer : cocos2d::CCLayer, TriggerEffectDelegate {
     void setupLayers() = win 0x203760, imac 0x1003c0, m1 0xe24c4;
     void setupLevelStart(LevelSettingsObject*) = ios 0x1e73bc, win 0x20cd60, imac 0x112f20, m1 0xf28b8;
     void setupReplay(gd::string) = win 0x234360, m1 0x11cd28;
-    void shakeCamera(float duration, float strength, float interval) = win 0x2356c0;
+    void shakeCamera(float duration, float strength, float interval) = win 0x2356c0, m1 0x11f9ac, imac 0x14a270, ios 0x205614;
     bool shouldExitHackedLevel() = ios 0x1de628, win 0x205d10, imac 0x102b90, m1 0xe49d0;
     TodoReturn sortAllGroupsX();
     void sortGroups() = win 0x21ef40, ios 0x1e0e5c;
