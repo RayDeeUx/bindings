@@ -9221,8 +9221,8 @@ class GJAccountManager : cocos2d::CCNode {
     void dataLoaded(DS_Dictionary*) = m1 0xbcd78, imac 0xd4730;
     void encodeDataTo(DS_Dictionary*) = imac 0xd46d0, m1 0xbcd20;
     void firstSetup();
-    bool getAccountBackupURL() = win 0x1fc2d0, m1 0xbb9b0, imac 0xd3180;
-    bool getAccountSyncURL() = win 0x1fd230, m1 0xbc19c, imac 0xd3a10;
+    bool getAccountBackupURL() = win 0x1fc2d0, m1 0xbb9b0, imac 0xd3180, ios 0x3997ec;
+    bool getAccountSyncURL() = win 0x1fd230, m1 0xbc19c, imac 0xd3a10, ios 0x399d24;
     cocos2d::CCObject* getDLObject(char const*);
     gd::string getShaPassword(gd::string) = win 0x1feee0;
     void handleIt(bool, gd::string, gd::string, GJHttpType) = win 0x1fb2c0, m1 0xb8918, imac 0xcfd00, ios 0x397ad0;
