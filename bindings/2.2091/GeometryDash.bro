@@ -6807,7 +6807,7 @@ class FMODAudioEngine : cocos2d::CCNode {
     virtual void update(float dt) = win 0x5e180, imac 0x3cbc20, m1 0x34f670, ios 0x1b5b08;
 
     void activateQueuedMusic(int channel) = win 0x64960, imac 0x3d6880, m1 0x35824c;
-    FMOD::Channel* channelForChannelID(int id) = win 0x60f50, imac 0x3cb1c0, m1 0x34ef04;
+    FMOD::Channel* channelForChannelID(int id) = win 0x60f50, imac 0x3cb1c0, m1 0x34ef04, ios 0x1b57cc;
     FMOD::Channel* channelForUniqueID(int id) = win inline, imac 0x3d2cc0, m1 0x355064, ios inline;
     int channelIDForUniqueID(int id) = win 0x60e90, m1 0x35433c;
     void channelLinkSound(int id, FMODSound* sound) = win inline, imac 0x3d2130, m1 0x35474c;
@@ -6817,23 +6817,23 @@ class FMODAudioEngine : cocos2d::CCNode {
     int countActiveEffects() = win inline, imac 0x3d03b0, m1 0x352dbc;
     int countActiveMusic() = win inline, imac 0x3d0490, m1 0x352e6c;
     FMOD::Sound* createStream(std::string path) = win 0x65b20, imac 0x3d7610, m1 0x358cb8;
-    void disableMetering() = win inline, imac 0x3d0a00, m1 0x3533b0;
-    void enableMetering() = win inline, imac 0x3d09d0, m1 0x353390;
+    void disableMetering() = win inline, imac 0x3d0a00, m1 0x3533b0, ios 0x1b8104;
+    void enableMetering() = win inline, imac 0x3d09d0, m1 0x353390, ios 0x1b80e4;
     void fadeInBackgroundMusic(float value) = win inline, imac 0x2eece0, m1 0x355fc8;
     void fadeInMusic(float duration, int channel) = win 0x65360, imac 0x3d4620, m1 0x356680;
     void fadeMusic(float duration, int channel, float startVolume, float endVolume) = win 0x655e0, imac 0x3d7530, m1 0x358c10;
     void fadeOutMusic(float duration, int channel) = win 0x654a0, imac 0x3d7450, m1 0x358b74;
     std::string getActiveMusic(int id) = win inline, imac 0x3d41a0, m1 0x3562b0, ios 0x1b9e0c;
     FMOD::Channel* getActiveMusicChannel(int musicID) = win inline, imac 0x3cece0, m1 0x351cd8, ios 0x1b730c;
-    float getBackgroundMusicVolume() = win inline, imac 0x3d3ed0, m1 0x356008;
+    float getBackgroundMusicVolume() = win inline, imac 0x3d3ed0, m1 0x356008, ios 0x1b9c08;
     FMOD::ChannelGroup* getChannelGroup(int id, bool reverb) = win 0x5f6c0, imac 0x3d0c20, m1 0x3535d8;
-    float getEffectsVolume() = win inline;
+    float getEffectsVolume() = win inline, ios 0x1b9c28;
     std::string getFMODStatus(int unused) = imac 0x3d78b0, m1 0x358f10;
-    float getMeteringValue() = win inline, imac 0x3d0a10;
+    float getMeteringValue() = win inline, imac 0x3d0a10, ios 0x1b810c;
     int getMusicChannelID(int musicID) = win inline, m1 0x353f70;
     unsigned int getMusicLengthMS(int channel) = win 0x65130, imac 0x3d6e10, m1 0x3586b0;
-    float getMusicTime(int channel) = win inline, imac 0x3d6d90, m1 0x35862c;
-    unsigned int getMusicTimeMS(int channel) = win 0x650d0, imac 0x3d6d20, m1 0x3585c0;
+    float getMusicTime(int channel) = win inline, imac 0x3d6d90, m1 0x35862c, ios 0x1bb4a4;
+    unsigned int getMusicTimeMS(int channel) = win 0x650d0, imac 0x3d6d20, m1 0x3585c0, ios 0x1bb438;
     int getNextChannelID() = win inline, imac 0x3d2190, m1 0x3547c0, ios inline;
     std::map<std::pair<int, int>, FMODSoundTween>& getTweenContainer(AudioTargetType type) = win inline, imac 0x3d0550, ios inline;
     bool isAnyPersistentPlaying() = win inline, imac 0x3d5490, m1 0x35730c;
@@ -6876,12 +6876,12 @@ class FMODAudioEngine : cocos2d::CCNode {
     void resumeMusic(int musicChannel) = win inline, imac 0x3cecc0, m1 0x351cb4;
     void resumeSuspendedAudio() = win 0x5e030;
     void saveAudioState(FMODAudioState& state) = win 0x5e6d0, imac 0x3ccec0, m1 0x3506ec;
-    void setBackgroundMusicVolume(float volume) = win inline, imac 0x3d3ee0, m1 0x356010;
+    void setBackgroundMusicVolume(float volume) = win inline, imac 0x3d3ee0, m1 0x356010, ios 0x1b9c10;
     void setChannelPitch(int id, AudioTargetType type, float pitch) = win 0x61d70, imac 0x3d08a0, m1 0x353270;
     void setChannelVolume(int id, AudioTargetType type, float volume) = win 0x619d0;
     void setChannelVolumeMod(int id, AudioTargetType type, float volumeMod) = win 0x61ba0;
-    void setEffectsVolume(float volume) = win inline, imac 0x3d3f20, m1 0x356030;
-    void setMusicTimeMS(unsigned int time, bool dontWait, int musicID) = win 0x64fa0, imac 0x3cfbf0, m1 0x3527f0;
+    void setEffectsVolume(float volume) = win inline, imac 0x3d3f20, m1 0x356030, ios 0x1b9c30;
+    void setMusicTimeMS(unsigned int time, bool dontWait, int musicID) = win 0x64fa0, imac 0x3cfbf0, m1 0x3527f0, ios 0x1b7b04;
     void setup() = win 0x5c8c0, imac 0x3c9e30, m1 0x34dd28, ios 0x1b4c48;
     void setupAudioEngine() = win 0x5cdc0, imac 0x3ca280, m1 0x34e118, ios 0x1b4ed4;
     void start() = win 0x5dfc0;
@@ -6995,11 +6995,11 @@ class FMODAudioState {
 class FMODLevelVisualizer : cocos2d::CCNode {
     virtual ~FMODLevelVisualizer() = win 0x80dc0;
 
-    static FMODLevelVisualizer* create() = win 0x3a9af0, imac 0x29daa0, m1 0x240f5c;
+    static FMODLevelVisualizer* create() = win 0x3a9af0, imac 0x29daa0, m1 0x240f5c, ios 0x37efa4;
 
     virtual bool init() = win 0x3a9b80, imac 0x29db10, m1 0x240fe4, ios 0x37f020;
 
-    void updateVisualizer(float volume, float peak, float time) = win 0x3aa050, imac 0x29df20, m1 0x241448;
+    void updateVisualizer(float volume, float peak, float time) = win 0x3aa050, imac 0x29df20, m1 0x241448, ios 0x37f3fc;
 
     float m_width;
 }
