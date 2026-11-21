@@ -6823,8 +6823,8 @@ class FMODAudioEngine : cocos2d::CCNode {
     void fadeInMusic(float duration, int channel) = win 0x65360, imac 0x3d4620, m1 0x356680;
     void fadeMusic(float duration, int channel, float startVolume, float endVolume) = win 0x655e0, imac 0x3d7530, m1 0x358c10;
     void fadeOutMusic(float duration, int channel) = win 0x654a0, imac 0x3d7450, m1 0x358b74;
-    std::string getActiveMusic(int id) = win inline, imac 0x3d41a0, m1 0x3562b0;
-    FMOD::Channel* getActiveMusicChannel(int musicID) = win inline, imac 0x3cece0, m1 0x351cd8;
+    std::string getActiveMusic(int id) = win inline, imac 0x3d41a0, m1 0x3562b0, ios 0x1b9e0c;
+    FMOD::Channel* getActiveMusicChannel(int musicID) = win inline, imac 0x3cece0, m1 0x351cd8, ios 0x1b730c;
     float getBackgroundMusicVolume() = win inline, imac 0x3d3ed0, m1 0x356008;
     FMOD::ChannelGroup* getChannelGroup(int id, bool reverb) = win 0x5f6c0, imac 0x3d0c20, m1 0x3535d8;
     float getEffectsVolume() = win inline;
@@ -6846,8 +6846,8 @@ class FMODAudioEngine : cocos2d::CCNode {
     int lengthForSound(std::string path) = win 0x626e0, imac 0x3d3be0, m1 0x355d84;
     void loadAndPlayMusic(std::string path, unsigned int time, int musicID) = win 0x62c50, imac 0x3d4390, m1 0x356418;
     void loadAudioState(FMODAudioState& state) = win 0x5eaf0, imac 0x3cd4f0, m1 0x350b0c;
-    void loadMusic(std::string path) = win inline, imac 0x3d4700, m1 0x356718;
-    void loadMusic(std::string path, float speed, float unknown, float volume, bool shouldLoop, int musicID, int channelID, bool dontReset) = win 0x62ec0, imac 0x3ce510, m1 0x35161c;
+    void loadMusic(std::string path) = win inline, imac 0x3d4700, m1 0x356718, ios 0x1ba128;
+    void loadMusic(std::string path, float speed, float unknown, float volume, bool shouldLoop, int musicID, int channelID, bool dontReset) = win 0x62ec0, imac 0x3ce510, m1 0x35161c, ios 0x1b6ea0;
     void logLifecycleState(char const*) = win inline, ios 0x1b56ac;
     TodoReturn logMixerProbe();
     void pauseAllAudio() = win inline, imac 0x3cb390, ios 0x1b582c;
