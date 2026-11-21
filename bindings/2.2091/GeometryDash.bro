@@ -3876,7 +3876,7 @@ class CustomSongWidget : cocos2d::CCNode, MusicDownloadDelegate, FLAlertLayerPro
     void updateMultiAssetInfo(bool update) = win 0x16d690, imac 0x6fc100, m1 0x60dd44, ios 0x12225c;
     void updatePlaybackBtn() = win 0x16c160, imac 0x6faba0, m1 0x60c8a8;
     void updateProgressBar(int progress) = win 0x162550, imac 0x6f99b0, m1 0x60b7a0;
-    void updateSongInfo() = win 0x16c380, imac 0x6f9ad0, m1 0x60b8bc;
+    void updateSongInfo() = win 0x16c380, imac 0x6f9ad0, m1 0x60b8bc, ios 0x12049c;
     void updateSongObject(SongInfoObject* songInfo) = win inline, imac 0x6f9a30, m1 0x60b818;
     void updateUsageButton() = win 0x16acc0;
     void updateWithMultiAssets(std::string songList, std::string sfxList, int bytes) = win 0x16d380, imac 0x6fb930, m1 0x60d534;
