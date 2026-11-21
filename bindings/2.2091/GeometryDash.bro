@@ -6831,7 +6831,7 @@ class FMODAudioEngine : cocos2d::CCNode {
     std::string getFMODStatus(int unused) = imac 0x3d78b0, m1 0x358f10;
     float getMeteringValue() = win inline, imac 0x3d0a10, ios 0x1b810c;
     int getMusicChannelID(int musicID) = win inline, m1 0x353f70;
-    unsigned int getMusicLengthMS(int channel) = win 0x65130, imac 0x3d6e10, m1 0x3586b0;
+    unsigned int getMusicLengthMS(int channel) = win 0x65130, imac 0x3d6e10, m1 0x3586b0, ios 0x1bb4c8;
     float getMusicTime(int channel) = win inline, imac 0x3d6d90, m1 0x35862c, ios 0x1bb4a4;
     unsigned int getMusicTimeMS(int channel) = win 0x650d0, imac 0x3d6d20, m1 0x3585c0, ios 0x1bb438;
     int getNextChannelID() = win inline, imac 0x3d2190, m1 0x3547c0, ios inline;
